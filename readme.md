@@ -76,8 +76,6 @@ i.w.a.sorting.SortingBenchmark.standardSort            ss  100  13.733 ± 0.061 
 This project uses [Gradle](https://gradle.org/install/). Make sure that you
 have [Java](https://java.com/en/download/help/download_options.html) installed.
 
-#### Make sure you're executing these commands in the folder `Practice/java-practice`.
-
 To run the entire suite of tests:
 
 ```
@@ -91,7 +89,7 @@ $ ./gradlew test --tests <TestClassName>
 ```
 
 For example, I can run the tests
-at [WeightedShortestPathTest](https://github.com/wcygan/Practice/blob/master/src/test/java/io/wcygan/algorithms/graph/pathfinding/WeightedShortestPathTest.java)
+at [WeightedShortestPathTest](src/test/java/io/wcygan/algorithms/graph/pathfinding/WeightedShortestPathTest.java)
 with:
 
 ```
@@ -125,7 +123,7 @@ See [Getting Started with JUnit-Quickcheck](https://pholser.github.io/junit-quic
 for more details.
 
 Once you've written a property-based test (like
-[SortingQuickCheck](https://github.com/wcygan/Practice/blob/master/src/test/java/io/wcygan/algorithms/sorting/SortingQuickCheck.java))
+[SortingQuickCheck](src/test/java/io/wcygan/algorithms/sorting/SortingQuickCheckTest.java))
 you can execute it in isolation just as we did before:
 
 ```
@@ -144,15 +142,3 @@ I'm using the following material as a reference:
 2. [Java Concurrency in Practice](https://jcip.net/)
 3. [The Art of Multiprocessor Programming](https://www.oreilly.com/library/view/the-art-of/9780123705914/)
 4. [Effective Java](https://www.oreilly.com/library/view/effective-java/9780134686097/)
-
-## Contributing
-
-1. **Fork** the repo on GitHub
-2. **Clone** the project to your own machine
-3. **Commit** changes to your own branch
-4. **Push** your work back up to your fork
-5. Submit a **Pull request** for your work
-
-Further, I recommend you use [IntelliJ](https://www.jetbrains.com/idea/) with the
-[palantir-java-format](https://plugins.jetbrains.com/plugin/13180-palantir-java-format/)
-plugin to format the code you submit.
