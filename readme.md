@@ -10,7 +10,6 @@ Practicing Data Structures, Algorithms, Concurrency, and more in [Java](https://
 - **[Build and Run](#build-and-run)**<br>
 - **[Property-Based Testing with JUnit-Quickcheck](#property-based-testing-with-junit-quickcheck)**<br>
 - **[References](#references)**<br>
-- **[Contributing](#contributing)**<br>
 
 ## Cool Stuff
 
