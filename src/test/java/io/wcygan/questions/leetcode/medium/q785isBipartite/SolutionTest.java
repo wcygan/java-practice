@@ -226,4 +226,70 @@ public class SolutionTest {
         };
         Assertions.assertFalse(solution.isBipartite(graph), "The graph should not be bipartite.");
     }
+
+    @Test
+    public void testDisconnectedSubgraphs() {
+        Solution solution = new Solution();
+        int[][] graph = {
+                {1},        // Subgraph 1: Node 0 connected to Node 1
+                {0},        // Subgraph 1: Node 1 connected to Node 0
+                {3, 4},     // Subgraph 2: Node 2 connected to Nodes 3 and 4
+                {2},        // Subgraph 2: Node 3 connected to Node 2
+                {2},        // Subgraph 2: Node 4 connected to Node 2
+                {6},        // Subgraph 3: Node 5 connected to Node 6
+                {5}         // Subgraph 3: Node 6 connected to Node 5
+        };
+        Assertions.assertTrue(solution.isBipartite(graph));
+    }
+
+    @Test
+    public void testMultipleDisconnectedBipartiteSubgraphs() {
+        Solution solution = new Solution();
+        int[][] graph = {
+                {1},        // Subgraph 1: Node 0 connected to Node 1
+                {0},        // Subgraph 1: Node 1 connected to Node 0
+                {3},        // Subgraph 2: Node 2 connected to Node 3
+                {2},        // Subgraph 2: Node 3 connected to Node 2
+                {5},        // Subgraph 3: Node 4 connected to Node 5
+                {4}         // Subgraph 3: Node 5 connected to Node 4
+        };
+        Assertions.assertTrue(solution.isBipartite(graph));
+    }
+
+    @Test
+    public void testSingleNode() {
+        Solution solution = new Solution();
+        int[][] graph = {{}};
+        Assertions.assertTrue(solution.isBipartite(graph));
+    }
+
+    @Test
+    public void testEvenCycle() {
+        Solution solution = new Solution();
+        int[][] graph = {{1, 3}, {0, 2}, {1, 3}, {0, 2}};
+        Assertions.assertTrue(solution.isBipartite(graph));
+    }
+
+    @Test
+    public void testOddCycle() {
+        Solution solution = new Solution();
+        int[][] graph = {{1, 2}, {0, 2}, {0, 1}};
+        Assertions.assertFalse(solution.isBipartite(graph));
+    }
+
+    @Test
+    public void testSelfLoop() {
+        Solution solution = new Solution();
+        int[][] graph = {{0}};
+        Assertions.assertFalse(solution.isBipartite(graph));
+    }
+
+    @Test
+    public void testComplexGraph() {
+        Solution solution = new Solution();
+        int[][] graph = {
+                {1, 3, 5}, {0, 2, 4}, {1, 3, 5}, {0, 2, 4}, {1, 3, 5}, {0, 2, 4}
+        };
+        Assertions.assertTrue(solution.isBipartite(graph));
+    }
 }
