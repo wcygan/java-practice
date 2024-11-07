@@ -8,8 +8,13 @@ public class ValidateBinarySearchTree {
      * @return True if it's a valid BST, otherwise false.
      */
     public boolean isValidBST(TreeNode root) {
-        // TODO: Implement this method
-        return false;
+        return validate(root, Long.MIN_VALUE, Long.MAX_VALUE);
+    }
+
+    private boolean validate(TreeNode node, long min, long max) {
+        if (node == null) return true;
+        if (node.val <= min || node.val >= max) return false;
+        return validate(node.left, min, node.val) && validate(node.right, node.val, max);
     }
 
     // Definition for a binary tree node.
@@ -17,6 +22,9 @@ public class ValidateBinarySearchTree {
         int val;
         TreeNode left;
         TreeNode right;
-        TreeNode(int x) { val = x; }
+
+        TreeNode(int x) {
+            val = x;
+        }
     }
 }
