@@ -1,5 +1,6 @@
 package io.wcygan.random.date_2024_nov_6;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BinaryTreeTraversal {
@@ -10,8 +11,16 @@ public class BinaryTreeTraversal {
      * @return A list of values representing the in-order traversal.
      */
     public List<Integer> inorderTraversal(TreeNode root) {
-        // TODO: Implement this method
-        return null;
+        List<Integer> inOrder = new ArrayList<>();
+        inorderTraversal(root, inOrder);
+        return inOrder;
+    }
+
+    public void inorderTraversal(TreeNode root, List<Integer> inOrder) {
+        if (root == null) return;
+        inorderTraversal(root.left, inOrder);
+        inOrder.add(root.val);
+        inorderTraversal(root.right, inOrder);
     }
 
     // Definition for a binary tree node.
