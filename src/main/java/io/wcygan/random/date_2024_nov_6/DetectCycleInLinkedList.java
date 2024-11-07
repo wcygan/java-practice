@@ -8,7 +8,23 @@ public class DetectCycleInLinkedList {
      * @return True if there is a cycle, otherwise false.
      */
     public boolean hasCycle(ListNode head) {
-        // TODO: Implement this method
+        if (head == null) return false;
+
+        ListNode turtle = head;
+        ListNode rabbit = head.next;
+
+        while (turtle != null && rabbit != null) {
+            if (rabbit == turtle) return true;
+
+            if (rabbit.next == null) break;
+            rabbit = rabbit.next;
+
+            if (rabbit.next == null) break;
+            rabbit = rabbit.next;
+
+            turtle = turtle.next;
+        }
+
         return false;
     }
 
