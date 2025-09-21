@@ -1,0 +1,5 @@
+{
+  "tasks": {
+    "setup-leetcode": "deno run --allow-net --allow-read --allow-write scripts/setup-leetcode-problem.ts"
+  }
+}
