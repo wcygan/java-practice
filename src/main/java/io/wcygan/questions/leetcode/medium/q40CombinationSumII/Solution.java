@@ -1,10 +1,14 @@
 package io.wcygan.questions.leetcode.medium.q40CombinationSumII;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 40. Combination Sum II
- * 
+ *
  * Difficulty: Medium
  * URL: https://leetcode.com/problems/combination-sum-ii/
- * 
+ *
  * Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates&nbsp;where the candidate numbers sum to target.
  * Each number in candidates&nbsp;may only be used once in the combination.
  * Note:&nbsp;The solution set must not contain duplicate combinations.
@@ -33,6 +37,6 @@ package io.wcygan.questions.leetcode.medium.q40CombinationSumII;
  */
 class Solution {
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        
+        return new ArrayList<>();
     }
 }
