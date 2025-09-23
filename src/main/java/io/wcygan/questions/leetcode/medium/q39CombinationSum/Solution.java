@@ -1,7 +1,7 @@
 package io.wcygan.questions.leetcode.medium.q39CombinationSum;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * 39. Combination Sum
@@ -35,6 +35,9 @@ import java.util.List;
  */
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(candidates);
+
         return new ArrayList<>();
     }
 }

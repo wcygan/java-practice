@@ -1,6 +1,10 @@
 package io.wcygan.questions.leetcode.medium.q39CombinationSum;
 
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+import java.util.Map;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class SolutionTest {
@@ -9,6 +13,5 @@ class SolutionTest {
 
     @Test
     void testExample1() {
-        // TODO: Add test cases
     }
 }

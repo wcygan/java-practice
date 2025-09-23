@@ -1,4 +1,8 @@
 package io.wcygan.questions.leetcode.medium.q146LRUCache;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * 146. LRU Cache
  *
@@ -38,8 +42,10 @@ package io.wcygan.questions.leetcode.medium.q146LRUCache;
  */
 class LRUCache {
 
-    public LRUCache(int capacity) {
+    Map<Integer, Integer> cache;
 
+    public LRUCache(int capacity) {
+        cache = new LinkedHashMap<>(capacity);
     }
 
     public int get(int key) {

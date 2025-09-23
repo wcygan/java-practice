@@ -36,7 +36,11 @@ import java.util.List;
  * 1 <= target <= 30
  */
 class Solution {
+    private List<List<Integer>> result;
+
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        return new ArrayList<>();
+        result = new ArrayList<>();
+
+        return result;
     }
 }
