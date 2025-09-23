@@ -1,7 +1,6 @@
 package io.wcygan.questions.leetcode.medium.q39CombinationSum;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * 39. Combination Sum
@@ -36,8 +35,23 @@ import java.util.stream.Collectors;
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
-        Arrays.sort(candidates);
+        dfs(candidates, target, new ArrayList<>(), 0, 0, result);
+        return result;
+    }
 
-        return new ArrayList<>();
+    private void dfs(int[] candidates, int target, List<Integer> path, int start, int pathSum, List<List<Integer>> result) {
+        if (pathSum > target) {
+            return;
+        }
+
+        if (pathSum == target) {
+            result.add(new ArrayList<>(path));
+        }
+
+        for (int i = start; i < candidates.length; i++) {
+            path.add(candidates[i]);
+            dfs(candidates, target, path, i, pathSum + candidates[i], result);
+            path.remove(path.size() - 1);
+        }
     }
 }

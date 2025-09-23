@@ -1,6 +1,7 @@
 package io.wcygan.questions.leetcode.medium.q40CombinationSumII;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -36,11 +37,38 @@ import java.util.List;
  * 1 <= target <= 30
  */
 class Solution {
-    private List<List<Integer>> result;
-
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        result = new ArrayList<>();
-
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(candidates);
+        backtrack(result, new ArrayList<>(), candidates, target, 0);
         return result;
+    }
+
+    /**
+     *
+     * @param answer the overall result of the method
+     * @param path the current values that are considered
+     * @param candidates the pool of values to consider
+     * @param remainder how much is remaining to hit the target
+     * @param position the index of the current recursion
+     */
+    private void backtrack(
+            List<List<Integer>> answer,
+            List<Integer> path,
+            int[] candidates,
+            int remainder,
+            int position) {
+        if (remainder < 0) {
+            return;
+        } else if (remainder == 0) {
+            answer.add(new ArrayList<>(path));
+        } else {
+            for (int i = position; i < candidates.length; i++) {
+                if (i > position && candidates[i] == candidates[i-1]) continue;
+                path.add(candidates[i]);
+                backtrack(answer, path, candidates, remainder - candidates[i], i + 1);
+                path.remove(path.size() - 1);
+            }
+        }
     }
 }
