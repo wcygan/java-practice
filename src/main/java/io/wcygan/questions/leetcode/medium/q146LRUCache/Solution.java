@@ -1,6 +1,7 @@
 package io.wcygan.questions.leetcode.medium.q146LRUCache;
 
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.Map;
 
 /**
@@ -42,17 +43,27 @@ import java.util.Map;
  */
 class LRUCache {
 
-    Map<Integer, Integer> cache;
+    LinkedHashMap<Integer, Integer> cache;
 
     public LRUCache(int capacity) {
-        cache = new LinkedHashMap<>(capacity);
+        cache = new LinkedHashMap<>(capacity, 0.75f, true) {
+            @Override
+            protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+                return size() > capacity;
+            }
+        };
     }
 
+
     public int get(int key) {
-        return 0;
+        if (!cache.containsKey(key)) {
+            return -1;
+        }
+
+        return cache.get(key);
     }
 
     public void put(int key, int value) {
-
+        cache.put(key, value);
     }
 }
