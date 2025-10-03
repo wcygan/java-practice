@@ -17,7 +17,7 @@ public class HttpClient {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .GET()
-                .uri(URI.create("https://httpbin.org/get"))
+                .uri(URI.create(uri))
                 .build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
