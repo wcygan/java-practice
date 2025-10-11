@@ -2,6 +2,7 @@ package io.wcygan.http.challenges.c0_bootstrap;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.wcygan.http.BaseHttpTest;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -11,7 +12,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 
-public class TestClass {
+public class TestClass extends BaseHttpTest {
     @Test
     public void testCreateHttpClient() throws IOException, InterruptedException {
         HttpClient client = HttpClient.newBuilder()
@@ -35,7 +36,7 @@ public class TestClass {
 
     @Test
     public void testGet() throws IOException, InterruptedException {
-        JsonNode json = io.wcygan.http.challenges.c0_bootstrap.HttpClient.get("https://httpbin.org/get");
+        JsonNode json = httpClientWrapper.get("https://httpbin.org/get");
         System.out.println(json.toPrettyString());
         System.out.println("URL: " + json.get("url").asText());
         System.out.printf("Done");

@@ -1,0 +1,11 @@
+{
+  "city": {
+    "name": "Chicago",
+    "details": {
+      "coordinates": {
+        "latitude": 41.8781,
+        "longitude": -87.6298
+      }
+    }
+  }
+}
