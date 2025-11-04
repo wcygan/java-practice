@@ -27,7 +27,35 @@ import java.util.List;
  * All the integers of nums are unique.
  */
 class Solution {
+    List<List<Integer>> solution = new ArrayList<>();
     public List<List<Integer>> permute(int[] nums) {
-        return new ArrayList<>();
+        backtrack(nums, new boolean[nums.length] ,new ArrayList<>());
+        return solution;
+    }
+
+    /**
+     * General backtracking pattern:
+     * 1. Check if we are out of bounds
+     * 2. Attempt exploring paths that include current number
+     * 3. Remove current number
+     * 4. Explore other paths
+     */
+    void backtrack(int[] nums, boolean[] used, List<Integer> path) {
+        if (path.size() == nums.length) {
+            // Found a solution, add a deep copy
+            solution.add(new ArrayList<>(path));
+        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (used[i] || i > 0 && nums[i] == nums[i-1] && !used[i-1]) {
+                continue;
+            }
+
+            path.add(nums[i]);
+            used[i] = true;
+            backtrack(nums, used, path);
+            path.remove(path.size() - 1);
+            used[i] = false;
+        }
     }
 }
