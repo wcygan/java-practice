@@ -33,6 +33,36 @@ package io.wcygan.questions.leetcode.medium.q200NumberofIslands;
  */
 class Solution {
     public int numIslands(char[][] grid) {
-        return 0;
+        int rows = grid.length;
+        int cols = grid[0].length;
+        int count = 0;
+
+        for (int r = 0; r < rows; r++) {
+            for (int c = 0; c < cols; c++) {
+                if (grid[r][c] == '1') {
+                    dfs(r, c, grid, rows, cols);
+                    count++;
+                }
+            }
+        }
+
+        return count;
+    }
+
+    void dfs(int r, int c, char[][] grid, int rows, int cols) {
+        // boundary or already visited
+        if (r < 0 || c < 0 || r >= rows || c >= cols || grid[r][c] == '0') {
+            return;
+        }
+
+        // mark visited
+        grid[r][c] = '0';
+
+        // explore all four directions
+        dfs(r + 1, c, grid, rows, cols);
+        dfs(r - 1, c, grid, rows, cols);
+        dfs(r, c + 1, grid, rows, cols);
+        dfs(r, c - 1, grid, rows, cols);
     }
 }
+
