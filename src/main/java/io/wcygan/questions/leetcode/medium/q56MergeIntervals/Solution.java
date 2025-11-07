@@ -1,4 +1,10 @@
 package io.wcygan.questions.leetcode.medium.q56MergeIntervals;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
 /**
  * 56. Merge Intervals
  *
@@ -27,6 +33,31 @@ package io.wcygan.questions.leetcode.medium.q56MergeIntervals;
  */
 class Solution {
     public int[][] merge(int[][] intervals) {
-        return 0;
+        // Requirements
+        // - Merge all internals (e.g., [[1, 3], [2, 6]] -> [[1, 6]]
+        // - Are the intervals sorted in any way? No!
+        // Approach (Brute Force)
+        // - Start with the next interval
+        // - Check all other intervals, merging if required
+        // - Repeat until all items have been checked
+        // Approach (Optimal)
+        // - Sort intervals by their start time
+
+        Arrays.sort(intervals, Comparator.comparingInt(a -> a[0]));
+
+        List<int[]> merged = new ArrayList<>();
+
+        for (int[] interval : intervals) {
+            if (merged.isEmpty() || merged.get(merged.size() - 1)[1] < interval[0]) {
+                merged.add(interval);
+            } else {
+                merged.get(merged.size() - 1)[1] = Math.max(
+                  merged.get(merged.size() - 1)[1],
+                  interval[1]
+                );
+            }
+        }
+
+        return merged.toArray(new int[merged.size()][]);
     }
 }
